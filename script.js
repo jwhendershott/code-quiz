@@ -1,5 +1,12 @@
 // Set variables for elements
-var startButton = document.getElementById.("startbtn");
+var startButton = document.getElementById("startbtn");
+var startDiv = document.getElementById("start")
+
+
+//Event starts quiz
+startButton.addEventListener("click",generateQuiz)
+
+
 
 
 // Quis questions and answers
@@ -34,5 +41,35 @@ var timeInterval;
 var score = 0;
 var correct;
 
-// Fuction to generate quiz questions/answers
-function generateQuiz()[]
+// Function to generate quiz questions/answers
+function generateQuiz(){
+    gameoverDiv.style.display = "none";
+    if (currentQuestionIndex === finalQuestionIndex){
+        return showScore();
+    } 
+    var currentQuestion = quizQuestions[index];
+    questionsEl.innerHTML = "<p>" + currentQuestion.question + "</p>";
+    buttonA.innerHTML = currentQuestion.answerA;
+    buttonB.innerHTML = currentQuestion.answerB;
+    buttonC.innerHTML = currentQuestion.answerC;
+    buttonD.innerHTML = currentQuestion.answerD;
+};
+
+// function hides start div and begins quiz
+function startQuiz(){
+    gameoverDiv.style.display = "none";
+    startDiv.style.display = "none";
+    generateQuizQuestion();
+
+    //Timer
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        quizTimer.textContent = "Time left: " + timeLeft;
+
+        if(timeLeft === 0) {
+          clearInterval(timerInterval);
+          showScore();
+        }
+      }, 1000);
+    quizBody.style.display = "block";
+    }
