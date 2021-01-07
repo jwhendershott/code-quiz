@@ -22,10 +22,10 @@ var buttonD = document.getElementById("d");
 // Quiz question object
 var quizQuestions = [{
     question: "Inside which HTML element do we put the JavaScript?",
-    choiceA: "\<script\>",
-    choiceB: "\<js\>",
-    choiceC: "\<scripting\>",
-    choiceD: " \<javascript\> ",
+    choiceA: "< script >",
+    choiceB: "< js >",
+    choiceC: "< scripting >",
+    choiceD: " < javascript > ",
     correctAnswer: "a"},
   {
     question: 'How do you call a function named "myFunction"?',
@@ -37,7 +37,7 @@ var quizQuestions = [{
    {
     question: "How can you add a comment in a JavaScript?",
     choiceA: "//This is a comment  ",
-    choiceB: "< !--Thisis a comment-- >",
+    choiceB: "< !--This is a comment-- >",
     choiceC: "'This is a comment",
     choiceD: "/^/This is a comment/^/",
     correctAnswer: "a"},
@@ -77,7 +77,7 @@ var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
 var timeLeft = 76;
 var timerInterval;
-var score = 0;
+// var score = 0;
 var correct;
 
 // This function cycles through the object array containing the quiz questions to generate the questions and answers.
@@ -118,7 +118,7 @@ function showScore(){
     gameoverDiv.style.display = "flex";
     clearInterval(timerInterval);
     highscoreInputName.value = "";
-    finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
+    finalScoreEl.innerHTML = "Your score is " + timeLeft + "!";
 }
 
 // On click of the submit button, we run the function highscore that saves and stringifies the array of high scores already saved in local stoage
@@ -132,6 +132,8 @@ submitScoreBtn.addEventListener("click", function highscore(){
     }else{
         var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
         var currentUser = highscoreInputName.value.trim();
+        //var score converts seconds left on timer to score
+        var score = timeLeft;
         var currentHighscore = {
             name : currentUser,
             score : score
@@ -198,13 +200,11 @@ function checkAnswer(answer){
     correct = quizQuestions[currentQuestionIndex].correctAnswer;
 
     if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
-        score++;
-        alert("That Is Correct!");
+        // score++;
         currentQuestionIndex++;
         generateQuizQuestion();
         //display in the results div that the answer is correct.
     }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
-        alert("That Is Incorrect.")
         timeLeft = timeLeft - 5
         currentQuestionIndex++;
         generateQuizQuestion();
@@ -214,5 +214,5 @@ function checkAnswer(answer){
     }
 }
 
-// This button starts the quiz!
+// This button starts the quiz
 startQuizButton.addEventListener("click",startQuiz);
