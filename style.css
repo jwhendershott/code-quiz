@@ -4,8 +4,7 @@
     
     li{
         padding-bottom: 3px;
-        color: white;
-        text-shadow: 1.5px 1px 3px black;
+        color: #1f1f1f;
         list-style-type: none;
     }
     
@@ -39,13 +38,12 @@
         font-family: sans-serif;
         background-color: #004BFA;
         border-radius: 10px;
-        border: 3px double #cccccc;
         color: #eeeeee;
         text-align: center;
         font-size: 15px;
         padding: 20px;
-        width: 200px;
-        margin-top: 3px;
+        width: 220px;
+        margin-top: 25px;
       }
     
       button:hover{
@@ -56,6 +54,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        border-radius: 25px;
+        background-color: #feffff;
+        padding: 50px;
     }
     
     #timer{
@@ -65,6 +66,9 @@
     }
     #quiz {
         display: none;
+        border-radius: 25px;
+        background-color: #feffff;
+        padding: 50px;
     }
     
     #result {
@@ -76,6 +80,9 @@
         display: none;
         flex-direction: column;
         align-items: center;
+        border-radius: 25px;
+        background-color: #feffff;
+        padding: 50px;
     }
     
     #highScore{
@@ -90,7 +97,7 @@
         border-color: silver;
         border-bottom-style: groove;
         padding-bottom: .3rem;
-        background: lightsteelblue;
+        background: #feffff;
     }
     
     #highscore-header{
@@ -121,6 +128,7 @@
         padding-left: 9.5rem;
         font-family: sans-serif;
         font-weight: bold;
+        color: #1f1f1f;
     }
     
     #highscore-score{
@@ -128,6 +136,7 @@
         padding-right: 8.75rem;
         font-family: sans-serif;
         font-weight: bold;
+        color: #1f1f1f;
     }
     
     #finalScore{
@@ -140,3 +149,6 @@
     #endGameBtns{
         display: none;
     }
+
+    
+    

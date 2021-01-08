@@ -77,7 +77,6 @@ var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
 var timeLeft = 76;
 var timerInterval;
-// var score = 0;
 var correct;
 
 // This function cycles through the object array containing the quiz questions to generate the questions and answers.
@@ -200,15 +199,12 @@ function checkAnswer(answer){
     correct = quizQuestions[currentQuestionIndex].correctAnswer;
 
     if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
-        // score++;
         currentQuestionIndex++;
         generateQuizQuestion();
-        //display in the results div that the answer is correct.
     }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
         timeLeft = timeLeft - 5
         currentQuestionIndex++;
         generateQuizQuestion();
-        //display in the results div that the answer is wrong.
     }else{
         showScore();
     }
